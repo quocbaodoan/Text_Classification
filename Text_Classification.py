@@ -200,7 +200,8 @@ if not os.path.exists(MODEL_PATH):
 nb_model = pickle.load(open(os.path.join(MODEL_PATH, "svm_model.pkl"), 'rb'))
 
 document = str(sys.argv[1])
-document = document.split("\\n")
+document = str(sys.argv[1].encode('utf-8', 'surrogatepass').decode('utf-8', 'replace'))
+document = document.split("\n")
 res = []
 i = 0
 for line in document:
