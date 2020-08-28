@@ -181,7 +181,7 @@ test_percent = 0.001
 text = []
 label = []
 
-for line in open('data.prep', encoding = "utf-8"):
+for line in open('data/data.prep', encoding = "utf-8"):
     words = line.strip().split()
     label.append(words[0])
     text.append(' '.join(words[1:]))
@@ -193,10 +193,11 @@ X_train, X_test, y_train, y_test = train_test_split(text, label, test_size=test_
 label_encoder = LabelEncoder()
 label_encoder.fit(y_train)
 
+MODEL_PATH = "models"
 if not os.path.exists(MODEL_PATH):
     os.makedirs(MODEL_PATH)
 
-nb_model = pickle.load(open(os.path.join("svm.pkl"), 'rb'))
+nb_model = pickle.load(open(os.path.join(MODEL_PATH, "svm_model.pkl"), 'rb'))
 
 document = str(sys.argv[1])
 document = document.split("\\n")
