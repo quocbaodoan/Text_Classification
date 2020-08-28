@@ -273,5 +273,5 @@ text_clf = Pipeline([('vect', CountVectorizer(ngram_range=(1,1),
 text_clf = text_clf.fit(X_train, y_train)
 
 # Save model
-pickle.dump(text_clf, open(os.path.join(MODEL_PATH, "svm.pkl"), 'wb'))
+pickle.dump(text_clf, open(os.path.join(MODEL_PATH, "svm_model.pkl"), 'wb'))
 
